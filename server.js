@@ -34,12 +34,6 @@ const { jwtAuthMiddleware } = require('./jwt');
 app.use('/person', personRoutes);
 app.use('/menu'
     ,menuItemRoutes);
-  
-//to display the menu items
-app.get('/menu',jwtAuthMiddleware, async (req,res)=>{
-    const menuItems = await db.getMenuItems();
-    res.json(menuItems);
-})
 
 app.listen(3000, ()=>{
     console.log('listening on port 3000');
